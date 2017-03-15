@@ -1,0 +1,5 @@
+*.gz
+*.meta
+mnist_model.cpkt.data-00000-of-00001
+mnist_model.cpkt.index
+checkpoint
