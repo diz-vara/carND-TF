@@ -30,7 +30,7 @@ biases = {
     'bd1': tf.Variable(tf.random_normal([1024])),
     'out': tf.Variable(tf.random_normal([n_classes]))}
 
-
+#%%
 def conv2d(x, W, b, strides=1):
     x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME')
     x = tf.nn.bias_add(x, b)
@@ -58,6 +58,7 @@ def conv_net(x, weights, biases, dropout):
     out = tf.add(tf.matmul(fc1, weights['out']), biases['out'])
     return out
 
+#%%    
 # tf Graph input
 x = tf.placeholder(tf.float32, [None, 28, 28, 1])
 y = tf.placeholder(tf.float32, [None, n_classes])
@@ -77,6 +78,7 @@ accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 # Initializing the variables
 init = tf.global_variables_initializer()
 
+#%%
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
