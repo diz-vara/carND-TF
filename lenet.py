@@ -85,7 +85,7 @@ y = tf.placeholder(tf.float32, (None, 10))
 fc2 = LeNet(x)
 
 loss_op = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(fc2, y))
-opt = tf.train.AdamOptimizer()
+opt = tf.train.AdamOptimizer(learning_rate = 2e-3)
 train_op = opt.minimize(loss_op)
 correct_prediction = tf.equal(tf.argmax(fc2, 1), tf.argmax(y, 1))
 accuracy_op = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
